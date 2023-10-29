@@ -39,7 +39,7 @@ function Predict() {
 
     setTimeout(() => {
       stopListening();
-    }, 3000); 
+    }, 3000);
   };
 
   const stopListening = () => {
@@ -129,7 +129,7 @@ function Predict() {
       },
       body: JSON.stringify({
         q: text,
-        target: "en", 
+        target: "en",
         source: "si",
       }),
     });
@@ -146,7 +146,7 @@ function Predict() {
   };
 
   const sendTranslationToBackend = async (translatedText) => {
-    const backendUrl = "http://127.0.0.1:8000/predict/"; 
+    const backendUrl = "http://127.0.0.1:8000/predict/";
     const translatedLow = translatedText.toLowerCase();
     try {
       const backendResponse = await axios
@@ -198,9 +198,6 @@ function Predict() {
                     break;
                 }
 
-                
-
-
                 // if (responseData.length > 1) {
                 //     const verbs = responseData.join(' ');
                 //     // setPrediction(verbs);
@@ -234,20 +231,19 @@ function Predict() {
     }
   };
 
-
   const handleKeyPress = (event) => {
-    if (event.key === ' ') {
+    if (event.key === " ") {
       startListening();
     }
   };
 
   useEffect(() => {
     // Add an event listener for the space bar key press
-    window.addEventListener('keydown', handleKeyPress);
+    window.addEventListener("keydown", handleKeyPress);
 
     // Cleanup: remove the event listener when the component unmounts
     return () => {
-      window.removeEventListener('keydown', handleKeyPress);
+      window.removeEventListener("keydown", handleKeyPress);
     };
   }, []);
 
